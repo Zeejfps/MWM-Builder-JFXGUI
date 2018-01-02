@@ -1,0 +1,21 @@
+#scrollPane > .viewport {
+    -fx-background-color: black;
+}
+
+#scrollPane {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+#settingsButton {
+    -fx-background-color: transparent, transparent, transparent, transparent;
+}
+
+#settingsButton:hover{
+    -fx-background-color: transparent, rgba(0,0,0,.1), rgba(0,0,0,.1), transparent;
+}
+
+#settingsButton:armed {
+    -fx-background-color: transparent, rgba(0,0,0,.1), rgba(0,0,0,.1), rgba(0,0,0,.2);
+}

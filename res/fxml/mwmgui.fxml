@@ -1,0 +1,69 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+<BorderPane fx:controller="mwmjfxgui.AppController"
+            xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <StackPane alignment="CENTER_RIGHT">
+            <MenuBar HBox.hgrow="ALWAYS">
+                <menus>
+                    <Menu text="File">
+                        <MenuItem text="Quit" onAction="#onQuitMenuClicked" accelerator="Alt+Q"/>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <Button fx:id="settingsButton" HBox.hgrow="NEVER"
+                    onAction="#onSettingsButtonClicked" focusTraversable="false"/>
+        </StackPane>
+    </top>
+
+    <center>
+
+        <VBox spacing="10">
+
+            <padding>
+                <Insets left="10" top="10" right="10" bottom="10"/>
+            </padding>
+
+            <GridPane>
+
+                <!-- First Row -->
+                <Label text="Src  "
+                       GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="srcPathField" GridPane.hgrow="ALWAYS" focusTraversable="false"
+                           GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Button text="..." onAction="#onBrowseSourceButtonClicked" focusTraversable="false"
+                        GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                <!-- Second Row -->
+                <Label text="Dst  "
+                       GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="dstPathField" GridPane.hgrow="ALWAYS" focusTraversable="false"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Button text="..." onAction="#onBrowseDestinationButtonClicked" focusTraversable="false"
+                        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+            </GridPane>
+
+            <HBox spacing="10">
+                <CheckBox fx:id="compareBuildDatesCheckbox" text="Compare Build Dates" selected="true"/>
+                <CheckBox fx:id="exportXMLCheckbox" text="Export XML"/>
+                <CheckBox fx:id="forceRebuildCheckbox" text="Force Rebuild"/>
+                <CheckBox fx:id="boundariesCheckbox" text="Check Open Boundaries"/>
+            </HBox>
+
+            <Button fx:id="buildButton" text="Build" maxWidth="Infinity" onAction="#onBuildButtonClicked"/>
+
+            <ScrollPane fx:id="scrollPane" VBox.vgrow="ALWAYS">
+
+                <TextFlow fx:id="textFlow"/>
+
+            </ScrollPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
